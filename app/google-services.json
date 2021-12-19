@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "987461134916",
+    "firebase_url": "https://regupmd-default-rtdb.firebaseio.com",
+    "project_id": "regupmd",
+    "storage_bucket": "regupmd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:987461134916:android:2ebdd686bec11abcf12a11",
+        "android_client_info": {
+          "package_name": "com.made_suande_1811010036.regupmd"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "987461134916-n3okhvd0nmtuhm0c1slbt49i10td2i8o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDan1Z4KJCFTBQYcM33RpNIBXNYyr8-_3Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "987461134916-n3okhvd0nmtuhm0c1slbt49i10td2i8o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
