@@ -1,9 +1,13 @@
 package com.made_suande_1811010036.regupmd;
 
 public class Kegiatan {
- String key, namaKegiatan, lokasi, waktu;
+ String mykey, key, namaKegiatan, lokasi, waktu;
 
     public Kegiatan() {
+    }
+
+    public Kegiatan(String mykey) {
+        this.mykey=mykey;
     }
 
     public Kegiatan(String key, String namaKegiatan, String lokasi, String waktu) {
@@ -11,6 +15,14 @@ public class Kegiatan {
         this.namaKegiatan = namaKegiatan;
         this.lokasi = lokasi;
         this.waktu = waktu;
+    }
+
+    public String getMykey() {
+        return mykey;
+    }
+
+    public void setMykey(String mykey) {
+        this.mykey = mykey;
     }
 
     public String getNamaKegiatan() {

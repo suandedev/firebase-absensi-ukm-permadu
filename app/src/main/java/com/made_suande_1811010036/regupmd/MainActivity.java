@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         String key = mDatabase.push().getKey();
         Kegiatan kegiatan = new Kegiatan(key, namaKegiatan, lokasi, waktu);
 
-        mDatabase.child(key).setValue(kegiatan);
+        mDatabase.child("kegiatan").child(key).setValue(kegiatan);
         Toast.makeText(getApplicationContext(), "succes", Toast.LENGTH_SHORT).show();
     }
 }
