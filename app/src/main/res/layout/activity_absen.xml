@@ -14,6 +14,7 @@
         android:text="form absensi kegiaran"
         android:textStyle="bold"
         android:textColor="@color/black"
+        android:layout_marginTop="10dp"
         android:textSize="24sp"
         android:textAlignment="center"
         android:fontFamily="sans-serif"/>
@@ -22,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="nama"
+        android:layout_marginTop="10dp"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:fontFamily="sans-serif"/>
@@ -37,6 +39,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:text="npm"
+        android:layout_marginTop="10dp"
         android:textColor="@color/black"
         android:textStyle="bold" />
 
@@ -44,13 +47,15 @@
         android:id="@+id/npm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="input npm..." />
+        android:hint="input npm..."
+        android:inputType="number"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:text="jurusan"
+        android:layout_marginTop="10dp"
         android:textColor="@color/black"
         android:textStyle="bold" />
 
@@ -60,10 +65,27 @@
         android:layout_height="wrap_content"
         android:hint="input jurusan..." />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="nama kegiatan"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/namaK"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="input nama kegiatan..." />
+
     <Button
         android:id="@+id/btnAbsen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="absen"/>
+        android:text="absen"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="end"/>
 
 </LinearLayout>

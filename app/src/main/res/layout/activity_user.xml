@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="20dp"
+    tools:context=".UserActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome to UKM PERMADU REGISTRATION Activity"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:fontFamily="sans-serif"/>
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/ukm"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/getLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@color/teal_700"
+        android:text="login"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textStyle="normal"
+        android:text="absen dengan klik tombol dibawah!"
+        android:fontFamily="sans-serif"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/getAbsen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="absens"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="UKM PERMADU merupakan unit kegiatan mahasiswa perhimpunan mahasiswa hindu."
+        android:textSize="16sp"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"/>
+
+</LinearLayout>
