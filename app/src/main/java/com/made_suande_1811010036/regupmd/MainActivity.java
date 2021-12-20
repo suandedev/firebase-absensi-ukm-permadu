@@ -2,6 +2,7 @@ package com.made_suande_1811010036.regupmd;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,8 +14,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText namaKegiatan, lokasi, waktu;
-    private Button btnSave;
+    private EditText namaKegiatan, lokasi, waktu, cekNamaKegiatan;
+    private Button btnSave, btnCek;
 
     private DatabaseReference mDatabase;
 
@@ -26,7 +27,9 @@ public class MainActivity extends AppCompatActivity {
         namaKegiatan = findViewById(R.id.namaKegiatan);
         lokasi = findViewById(R.id.lokasi);
         waktu = findViewById(R.id.waktu);
+        cekNamaKegiatan = findViewById(R.id.cekNamaKegiatan);
         btnSave = findViewById(R.id.btnSave);
+        btnCek = findViewById(R.id.btnCek);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -36,6 +39,15 @@ public class MainActivity extends AppCompatActivity {
                 saveKegiatan(namaKegiatan.getText().toString(),
                         lokasi.getText().toString(),
                         waktu.getText().toString());
+            }
+        });
+
+        btnCek.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), GetAbsensiActivity.class);
+                i.putExtra("namaKegiatan", cekNamaKegiatan.getText().toString());
+                startActivity(i);
             }
         });
     }

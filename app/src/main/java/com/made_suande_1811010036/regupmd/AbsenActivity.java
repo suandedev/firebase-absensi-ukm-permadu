@@ -11,6 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -75,10 +78,6 @@ public class AbsenActivity extends AppCompatActivity {
                     Log.d(TAG, "true: " + k.key);
                     getDataKegiatan(k.key, nama, npm, jurusan);
                 }
-                if (!namaKegiatan.equals(k.namaKegiatan)) {
-                    Log.d(TAG, "false: " + k.namaKegiatan);
-                    Toast.makeText(getApplicationContext(), "nama kegiatan tidak sesuai", Toast.LENGTH_SHORT).show();
-                }
             }
 
             @Override
@@ -110,8 +109,23 @@ public class AbsenActivity extends AppCompatActivity {
         String key = mDatabase.push().getKey();
         Absen absen = new Absen(key, nama, npm, jurusan);
         if (!nama.equals("") && !npm.equals("") && !jurusan.equals("")) {
-            mDatabase.child("kegiatan").child(mykey).child("absensi").child(key).setValue(absen);
-            Toast.makeText(getApplicationContext(), "success absen", Toast.LENGTH_SHORT).show();
+            mDatabase.child("kegiatan").child(mykey).child("absensi").child(key).setValue(absen)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(getApplicationContext(), "success absen", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(getApplicationContext(), "nama kegiatan kurang tepat!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
 //            finish();
         } else  {
             Toast.makeText(getApplicationContext(), "nama, npm, jurusan tidak kosong", Toast.LENGTH_SHORT).show();
