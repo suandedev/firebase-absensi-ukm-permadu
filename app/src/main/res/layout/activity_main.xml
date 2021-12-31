@@ -1,89 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="20dp"
-    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
-        android:text="welcome to UKM PERMADU Registration"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="kegiatan" />
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="welcome to UKM PERMADU Registration"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/namaKegiatan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="input nama kegiatan..." />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="kegiatan" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="lokasi" />
+        <EditText
+            android:id="@+id/namaKegiatan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="input nama kegiatan..." />
 
-    <EditText
-        android:id="@+id/lokasi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="input lokasi kegiatan..." />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="lokasi" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="waktu"/>
+        <EditText
+            android:id="@+id/lokasi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="input lokasi kegiatan..." />
 
-    <EditText
-        android:id="@+id/waktu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="input waktu kegiatan..."
-        android:inputType="date"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="waktu"/>
 
-    <Button
-        android:id="@+id/btnSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="end"
-        android:text="save"/>
+        <EditText
+            android:id="@+id/waktu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="input waktu kegiatan..."
+            />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="lihat data absensi kegiatan?"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:textStyle="normal"
-        android:textColor="@color/black"
-        android:layout_marginTop="20dp"/>
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="end"
+            android:text="save"/>
 
-    <EditText
-        android:id="@+id/cekNamaKegiatan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="nama kegiatan..."/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="lihat data absensi kegiatan?"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="normal"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"/>
 
-    <Button
-        android:id="@+id/btnCek"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:text="cek"/>
+        <EditText
+            android:id="@+id/cekNamaKegiatan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="nama kegiatan..."/>
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btnCek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="cek"/>
+
+        <Button
+            android:id="@+id/btnCekKegiatan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/teal_700"
+            android:text="cek kegiatan"/>
+    </LinearLayout>
+</ScrollView>

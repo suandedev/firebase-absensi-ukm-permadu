@@ -10,10 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RegUpmd">
         <activity
-            android:name=".GetAbsensiActivity"
+            android:name=".GetKegiatanActivity"
             android:exported="false" >
 
         </activity>
+        <activity
+            android:name=".DetailAbsenActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GetAbsensiActivity"
+            android:exported="false"></activity>
         <activity
             android:name=".UserActivity"
             android:exported="true">
@@ -25,15 +31,13 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".AbsenActivity"
-            android:exported="false" >
-
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false" >
+            android:exported="false">
 
         </activity>
     </application>

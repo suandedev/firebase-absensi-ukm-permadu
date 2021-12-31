@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -26,6 +28,7 @@ public class GetAbsensiActivity extends AppCompatActivity {
     private ListView lv;
 
     private List<Absen> absenList;
+    private List<Kegiatan> kegiatanList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,7 @@ public class GetAbsensiActivity extends AppCompatActivity {
         String kegiatan = getIntent().getStringExtra("namaKegiatan");
 //        String kegiatan = "saucam";
         absenList = new ArrayList<>();
+        kegiatanList = new ArrayList<>();
 
         ChildEventListener childEventListener = new ChildEventListener() {
             @Override
@@ -47,8 +51,6 @@ public class GetAbsensiActivity extends AppCompatActivity {
                 if (kegiatan.equals(k.namaKegiatan)) {
 //                    Log.d("my", "true: " + k.key);
                     getAbsenByNamaKegiatan(k.key);
-                } else {
-                    Toast.makeText(getApplicationContext(), "nama kegiatan tidak cocok", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -73,6 +75,27 @@ public class GetAbsensiActivity extends AppCompatActivity {
             }
         };
         mDatabase.child("kegiatan").addChildEventListener(childEventListener);
+
+        ValueEventListener postListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Get Post object and use the values to update the UI
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+
+                    Kegiatan kegiatan1 = snapshot.getValue(Kegiatan.class);
+                    kegiatanList.add(kegiatan1);
+                }
+//                Log.d("my", "onDataChange: " + kegiatanList.get(0).getNamaKegiatan());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w("my", "loadPost:onCancelled", databaseError.toException());
+            }
+        };
+        mDatabase.child("kegiatan").addValueEventListener(postListener);
     }
 
     private void getAbsenByNamaKegiatan(String key) {
@@ -85,9 +108,23 @@ public class GetAbsensiActivity extends AppCompatActivity {
                     absenList.add(absen);
                 }
 
-                Log.d("my", "absen: " + absenList.get(4).getNama());
+//                Log.d("my", "absen: " + absenList.get(0).getKabid());
                 AbsenAdapter adapter = new AbsenAdapter(GetAbsensiActivity.this, absenList);
                 lv.setAdapter(adapter);
+
+                lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                    @Override
+                    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        Intent intent = new Intent(getApplicationContext(), DetailAbsenActivity.class);
+                        intent.putExtra("nama", absenList.get(i).getNama());
+                        intent.putExtra("npm", absenList.get(i).getNpm());
+                        intent.putExtra("kabid", absenList.get(i).getKabid());
+                        intent.putExtra("waktu", absenList.get(i).getWaktu());
+                        startActivity(intent);
+                        Log.d("my", "onItemLongClick: " + absenList.get(i).getWaktu());
+                        return false;
+                    }
+                });
             }
 
             @Override

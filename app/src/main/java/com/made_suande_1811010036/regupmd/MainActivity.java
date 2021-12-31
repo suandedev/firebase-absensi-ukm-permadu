@@ -15,7 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class MainActivity extends AppCompatActivity {
 
     private EditText namaKegiatan, lokasi, waktu, cekNamaKegiatan;
-    private Button btnSave, btnCek;
+    private Button btnSave, btnCek, btnCekKegiatan;
 
     private DatabaseReference mDatabase;
 
@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         cekNamaKegiatan = findViewById(R.id.cekNamaKegiatan);
         btnSave = findViewById(R.id.btnSave);
         btnCek = findViewById(R.id.btnCek);
+        btnCekKegiatan = findViewById(R.id.btnCekKegiatan);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -47,6 +48,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), GetAbsensiActivity.class);
                 i.putExtra("namaKegiatan", cekNamaKegiatan.getText().toString());
+                startActivity(i);
+            }
+        });
+
+        btnCekKegiatan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), GetKegiatanActivity.class);
                 startActivity(i);
             }
         });

@@ -54,16 +54,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
-        android:text="jurusan"
+        android:text="kabid"
         android:layout_marginTop="10dp"
         android:textColor="@color/black"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/jurusan"
+        android:id="@+id/kabid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="input jurusan..." />
+        android:hint="input kabid..." />
 
     <TextView
         android:layout_width="match_parent"

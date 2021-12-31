@@ -27,7 +27,7 @@ import java.util.List;
 public class AbsenActivity extends AppCompatActivity {
 
 //    inisiasi
-    private EditText nama, npm, jurusan, namaK;
+    private EditText nama, npm, kabid, namaK;
     private Button btnAbsen;
 
 //    get database refrense
@@ -44,7 +44,7 @@ public class AbsenActivity extends AppCompatActivity {
 //        get from action interface
         nama = findViewById(R.id.nama);
         npm = findViewById(R.id.npm);
-        jurusan = findViewById(R.id.jurusan);
+        kabid = findViewById(R.id.kabid);
         namaK = findViewById(R.id.namaK);
         btnAbsen = findViewById(R.id.btnAbsen);
 
@@ -58,13 +58,13 @@ public class AbsenActivity extends AppCompatActivity {
 //                do absen method add value
                 doAbsen(nama.getText().toString(),
                         npm.getText().toString(),
-                        jurusan.getText().toString());
+                        kabid.getText().toString(), String.valueOf(System.currentTimeMillis()));
             }
         });
 
     }
 
-    private void doAbsen(String nama, String npm, String jurusan) {
+    private void doAbsen(String nama, String npm, String kabid, String waktu) {
 
         kegiatanList = new ArrayList<>();
         String namaKegiatan = namaK.getText().toString();
@@ -76,7 +76,7 @@ public class AbsenActivity extends AppCompatActivity {
 //                Log.d(TAG, "onChildAdded: " + k.namaKegiatan);
                 if (namaKegiatan.equals(k.namaKegiatan)) {
                     Log.d(TAG, "true: " + k.key);
-                    getDataKegiatan(k.key, nama, npm, jurusan);
+                    getDataKegiatan(k.key, nama, npm, kabid, waktu);
                 }
             }
 
@@ -104,31 +104,15 @@ public class AbsenActivity extends AppCompatActivity {
 
     }
 
-    private void getDataKegiatan(String mykey, String nama, String npm, String jurusan) {
+    private void getDataKegiatan(String mykey, String nama, String npm, String kabid, String waktu) {
 
         String key = mDatabase.push().getKey();
-        Absen absen = new Absen(key, nama, npm, jurusan);
-        if (!nama.equals("") && !npm.equals("") && !jurusan.equals("")) {
-            mDatabase.child("kegiatan").child(mykey).child("absensi").child(key).setValue(absen)
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                Toast.makeText(getApplicationContext(), "success absen", Toast.LENGTH_SHORT).show();
-                            } else {
-                                Toast.makeText(getApplicationContext(), "nama kegiatan kurang tepat!", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
-//            finish();
+        Absen absen = new Absen(key, nama, npm, kabid, waktu);
+        if (!nama.equals("") && !npm.equals("") && !kabid.equals("")) {
+            mDatabase.child("kegiatan").child(mykey).child("absensi").child(key).setValue(absen);
+            Toast.makeText(getApplicationContext(), "success absen", Toast.LENGTH_SHORT).show();
         } else  {
-            Toast.makeText(getApplicationContext(), "nama, npm, jurusan tidak kosong", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "nama, npm, kabid tidak kosong", Toast.LENGTH_SHORT).show();
         }
     }
 }

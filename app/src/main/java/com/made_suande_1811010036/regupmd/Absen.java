@@ -2,16 +2,18 @@ package com.made_suande_1811010036.regupmd;
 
 public class Absen {
 
-    String key, nama, npm, jurusan;
+    String key, nama, npm, kabid, waktu;
+
 
     public Absen() {
     }
 
-    public Absen(String key, String nama, String npm, String jurusan) {
+    public Absen(String key, String nama, String npm, String kabid, String waktu) {
         this.key = key;
         this.nama = nama;
         this.npm = npm;
-        this.jurusan = jurusan;
+        this.kabid = kabid;
+        this.waktu = waktu;
     }
 
     public String getKey() {
@@ -38,11 +40,19 @@ public class Absen {
         this.npm = npm;
     }
 
-    public String getJurusan() {
-        return jurusan;
+    public String getKabid() {
+        return kabid;
     }
 
-    public void setJurusan(String jurusan) {
-        this.jurusan = jurusan;
+    public void setKabid(String kabid) {
+        this.kabid = kabid;
+    }
+
+    public String getWaktu() {
+        return waktu;
+    }
+
+    public void setWaktu(String waktu) {
+        this.waktu = waktu;
     }
 }
